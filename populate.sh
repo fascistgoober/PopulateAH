@@ -35,30 +35,11 @@ ITEMS_LIST=`mysql -e "select entry,BuyPrice,SellPrice FROM ${ITEM_DB}.${ITEM_TBL
 # Prepare formatting for list.tmp
 echo "`echo ${ITEMS_LIST} | tr " " "," | xargs --delimiter="," -n3 | sed 1d | head -n -1 | sed 's/ /,/g' > list.tmp `"
 
-
-##
-# Create the item_instance entries
-##
-#while read line;
-#do
-# II_MAX_ENTRY=`expr ${II_MAX_ENTRY} + 1`
- # Apparently theres no default for the `Characters.item_instance:enchantments`
-# ENCHANTMENTS="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
-# if [ $DEBUG -eq 1 ]
-# then
-#   echo "ITERATION ${II_MAX_ENTRY}"
-#   echo $line | sed "s/,.*//" | sed "s/^/INSERT INTO ${AH_DB}.${II_TBL} (guid, itemEntry, enchantments) VALUES (${II_MAX_ENTRY},/" | sed "s/$/,\"${ENCHANTMENTS}\");/"
-# fi
-#done < list.tmp
-
-#exit
-
-
 ##
 # Create the auctionhouse entries
+# and item_template entries.
 ##
 
-## Attempting to add incremental for `id`
 while read line;
 do
  AH_MAX_ENTRY=`expr ${AH_MAX_ENTRY} + 1`
