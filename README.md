@@ -17,12 +17,13 @@ there is. I'll look later. If not, its a feature I'll try to make.)
 
 Its written in shell for now. That means it only works on Linux/BSD I guess.
 
-1.) Run populate.sh
-2.) Restart the server
-
+```
+$ sh populate.sh
+$ # Restart the server
+```
 
 # TODO
-
+```
 [ ] Add in every item
 [ ] Create whitelist
 [ ] Create blacklist
@@ -31,6 +32,7 @@ Its written in shell for now. That means it only works on Linux/BSD I guess.
 [ ] Find a way to not have to reboot the server
 [ ] refactor
 [ ] Windows support
+```
 
 # Version 0.0.1
 
